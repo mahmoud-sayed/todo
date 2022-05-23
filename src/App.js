@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { FaPlus, FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
+import './App.scss';
+const App = () => {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='todo-page'>
+      <div className='todo-wrapper'>
+
+        <form>
+          <input type="text" />
+          <button><FaPlus /></button>
+        </form>
+
+        <div className='todos'>
+          <ul>
+            <li>
+              <div className='todo-data'>
+                <input type="checkbox" />
+                <p >sasasasas</p>
+              </div>
+              <div className='todo-actions'>
+                <FaCheckCircle className='todo-check' />
+                <FaEdit className='todo-edit' />
+                <FaTrashAlt className='todo-delete' />
+              </div>
+            </li>
+            <li>
+              <div className='todo-data'>
+                <input type="checkbox" />
+                <p >sasasasas</p>
+              </div>
+              <div className='todo-actions'>
+                <FaCheckCircle className='todo-check' />
+                <FaEdit className='todo-edit' />
+                <FaTrashAlt className='todo-delete' />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
