@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaPlus, FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
 import './App.scss';
+import Data from './Components/data/Data';
 const App = () => {
 
   return (
     <div className='todo-page'>
+      <Data />
       <div className='todo-wrapper'>
 
         <form>

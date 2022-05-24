@@ -91,6 +91,7 @@
               height: 20px;
               border: 2px solid #126ff1;
               outline: #126ff1;
+
             }
           }
 
@@ -106,17 +107,31 @@
             .todo-check {
               color: rgb(54, 226, 54);
               cursor: pointer;
+
+              &:hover {
+                color: rgb(119, 255, 119);
+
+              }
             }
 
             .todo-edit {
               color: rgb(252, 101, 14);
               cursor: pointer;
 
+              &:hover {
+                color: rgb(255, 156, 99);
+
+              }
+
             }
 
             .todo-delete {
               color: red;
               cursor: pointer;
+
+              &:hover {
+                color: rgb(255, 112, 112);
+              }
 
             }
           }
