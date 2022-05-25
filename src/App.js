@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlus, FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
+
+
 import './App.scss';
 import axios from 'axios';
+import TodosData from './Components/TodosData';
+import Form from './Components/Form';
 const App = () => {
 
   const [todos, setTodos] = useState([]);
@@ -24,37 +27,9 @@ const App = () => {
 
       <div className='todo-wrapper'>
 
-        <form>
-          <input type="text" />
-          <button><FaPlus /></button>
-        </form>
+        <Form />
 
-        <div className='todos'>
-          <ul>
-            <li>
-              <div className='todo-data'>
-                <input type="checkbox" />
-                <p >sasasasas</p>
-              </div>
-              <div className='todo-actions'>
-                <FaCheckCircle className='todo-check' />
-                <FaEdit className='todo-edit' />
-                <FaTrashAlt className='todo-delete' />
-              </div>
-            </li>
-            <li>
-              <div className='todo-data'>
-                <input type="checkbox" />
-                <p >sasasasas</p>
-              </div>
-              <div className='todo-actions'>
-                <FaCheckCircle className='todo-check' />
-                <FaEdit className='todo-edit' />
-                <FaTrashAlt className='todo-delete' />
-              </div>
-            </li>
-          </ul>
-        </div>
+        <TodosData todos={todos} />
 
       </div>
     </div>
