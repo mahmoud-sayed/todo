@@ -1,35 +1,17 @@
 import React from 'react';
-import { FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
+import Todo from './Todo';
 
-const Todo = ({ todos }) => {
+const TodosData = ({ todos }) => {
+
   return (
-    <div className='todos'>
-      <ul>
-        <li>
-          <div className='todo-data'>
-            <input type="checkbox" />
-            <p >sasasasas</p>
-          </div>
-          <div className='todo-actions'>
-            <FaCheckCircle className='todo-check' />
-            <FaEdit className='todo-edit' />
-            <FaTrashAlt className='todo-delete' />
-          </div>
-        </li>
-        <li>
-          <div className='todo-data'>
-            <input type="checkbox" />
-            <p >sasasasas</p>
-          </div>
-          <div className='todo-actions'>
-            <FaCheckCircle className='todo-check' />
-            <FaEdit className='todo-edit' />
-            <FaTrashAlt className='todo-delete' />
-          </div>
-        </li>
-      </ul>
-    </div>
+    <React.Fragment>
+      {
+        todos.map((todo) => (
+          <Todo key={todo.id} title={todo.title} completed={todo.completed} />)
+        )
+      }
+    </React.Fragment>
   );
 };
 
-export default Todo;
+export default TodosData;

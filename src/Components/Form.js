@@ -3,7 +3,7 @@ import { FaPlus } from 'react-icons/fa';
 const Form = () => {
   return (
     <form>
-      <input type="text" />
+      <input type="text" placeholder='Add ToDo' />
       <button><FaPlus /></button>
     </form>
   );
