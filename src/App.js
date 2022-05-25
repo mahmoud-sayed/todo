@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPlus, FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
 import './App.scss';
-import Data from './Components/data/Data';
+import axios from 'axios';
 const App = () => {
+
+  const [todos, setTodos] = useState([]);
+
+  const fitchURL = 'https://jsonplaceholder.typicode.com/users/1/todos';
+
+  useEffect(() => {
+
+    async function fitchData() {
+      const request = await axios.get(fitchURL);
+      setTodos(request.data);
+    }
+    fitchData();
+
+  }, [fitchURL]);
+  console.log(todos);
 
   return (
     <div className='todo-page'>
-      <Data />
+
       <div className='todo-wrapper'>
 
         <form>
@@ -40,6 +55,7 @@ const App = () => {
             </li>
           </ul>
         </div>
+
       </div>
     </div>
   );
