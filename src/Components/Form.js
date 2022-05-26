@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
-const Form = () => {
+const Form = ({ todo, setTodo }) => {
+
+  const [todo, setTodo] = useState('');
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <form>
-      <input type="text" placeholder='Add ToDo' />
+    <form onSubmit={handelSubmit}>
+      <input type="text" placeholder='Add ToDo' onChange={(e) => setTodo(e.target.value)} />
       <button><FaPlus /></button>
     </form>
   );

@@ -8,28 +8,28 @@ import Form from './Components/Form';
 const App = () => {
 
   const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState('');
 
   const fitchURL = 'https://jsonplaceholder.typicode.com/users/1/todos';
 
   useEffect(() => {
-
-    async function fitchData() {
-      const request = await axios.get(fitchURL);
-      setTodos(request.data);
-    }
     fitchData();
 
   }, [fitchURL]);
-  console.log(todos);
+
+  const fitchData = async () => {
+    const request = await axios.get(fitchURL);
+    setTodos(request.data);
+  };
 
   return (
     <div className='todo-page'>
 
       <div className='todo-wrapper'>
 
-        <Form />
+        <Form todo={todo} setTodo={setTodo} />
 
-        <TodosData todos={todos} />
+        <TodosData todos={todos} todo={todo} setTodo={setTodo} />
 
       </div>
     </div>
