@@ -8,8 +8,8 @@ import Form from './Components/Form';
 const App = () => {
 
   const [todos, setTodos] = useState([]);
-  const [todo, setTodo] = useState('');
-  console.log(todos);
+  const [title, setTitle] = useState('');
+
   const fitchURL = 'https://jsonplaceholder.typicode.com/users/1/todos';
 
   useEffect(() => {
@@ -28,23 +28,25 @@ const App = () => {
 
   const addTodo = async () => {
     const id = todos[todos.length - 1].id + 1;
-    const newTodo = { id, todo, completed: false };
-    const todoLists = { ...todos, newTodo };
+    const newTodo = { id, title, completed: false };
+    const todoLists = [...todos, newTodo];
     setAndSaveTodos(todoLists);
 
     await axios.post(fitchURL, todoLists);
+
   };
   const handelSubmit = (e) => {
     e.preventDefault();
-    if (!todo) return;
-    addTodo(todo);
-  };
+    if (!title) return;
+    addTodo(title);
 
+  };
+  console.log(todos);
   return (
     <div className='todo-page'>
       <div className='todo-wrapper'>
-        <Form todo={todo} setTodo={setTodo} handelSubmit={handelSubmit} />
-        <TodosData todos={todos} todo={todo} setTodo={setTodo} />
+        <Form todo={title} setTitle={setTitle} handelSubmit={handelSubmit} />
+        <TodosData todos={todos} todo={title} setTitle={setTitle} />
       </div>
     </div>
   );

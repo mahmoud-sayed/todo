@@ -1,13 +1,13 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
-const Form = ({ todo, setTodo, handelSubmit }) => {
+const Form = ({ title, setTitle, handelSubmit }) => {
 
 
 
 
   return (
     <form onSubmit={handelSubmit}>
-      <input type="text" placeholder='Add ToDo' onChange={(e) => setTodo(e.target.value)} value={todo} />
+      <input type="text" placeholder='Add ToDo' onChange={(e) => setTitle(e.target.value)} value={title} />
       <button><FaPlus /></button>
     </form>
   );
