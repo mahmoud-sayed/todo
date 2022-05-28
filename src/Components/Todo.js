@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
 
-const Todo = ({ title, completed }) => {
+const Todo = ({ title, completed, handelDelete, id }) => {
 
   return (
     <div className='todos'>
@@ -14,7 +14,7 @@ const Todo = ({ title, completed }) => {
           <div className='todo-actions'>
             <FaCheckCircle className='todo-check' />
             <FaEdit className='todo-edit' />
-            <FaTrashAlt className='todo-delete' />
+            <FaTrashAlt className='todo-delete' onClick={() => handelDelete(id)} />
           </div>
         </li>
 

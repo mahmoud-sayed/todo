@@ -1,15 +1,13 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodosData = ({ todos }) => {
+const TodosData = ({ todos, handelDelete }) => {
 
-  const todo = todos.map((todo) => (<Todo key={todo.id} title={todo.title} completed={todo.completed} />));
 
   return (
     <React.Fragment>
-      {
-        todo
-      }
+      {todos.map((todo) => (<Todo key={todo.id} title={todo.title} completed={todo.completed} handelDelete={handelDelete} id={todo.id} />))}
+
     </React.Fragment>
   );
 };

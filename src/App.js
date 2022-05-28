@@ -27,26 +27,42 @@ const App = () => {
   };
 
   const addTodo = async () => {
-    const id = todos[todos.length - 1].id + 1;
-    const newTodo = { id, title, completed: false };
-    const todoLists = [...todos, newTodo];
-    setAndSaveTodos(todoLists);
 
-    await axios.post(fitchURL, todoLists);
+    if (todos.length === 0) {
+      const id = 1;
+      const Todo = { id, title, completed: false };
+      const newTodo = [Todo];
+      setAndSaveTodos(newTodo);
+      await axios.post(fitchURL, newTodo);
+
+    } else {
+      const id = todos[todos.length - 1].id + 1;
+      const newTodo = { id, title, completed: false };
+      const todoLists = [...todos, newTodo];
+      setAndSaveTodos(todoLists);
+      await axios.post(fitchURL, todoLists);
+
+    }
 
   };
+
   const handelSubmit = (e) => {
     e.preventDefault();
     if (!title) return;
     addTodo(title);
-
+    setTitle('');
   };
-  console.log(todos);
+
+  const handelDelete = (id) => {
+    const todosAfterDelete = todos.filter(todo => todo.id !== id);
+    setTodos(todosAfterDelete);
+    console.log(todosAfterDelete);
+  };
   return (
     <div className='todo-page'>
       <div className='todo-wrapper'>
         <Form todo={title} setTitle={setTitle} handelSubmit={handelSubmit} />
-        <TodosData todos={todos} todo={title} setTitle={setTitle} />
+        <TodosData todos={todos} todo={title} setTitle={setTitle} handelDelete={handelDelete} />
       </div>
     </div>
   );
