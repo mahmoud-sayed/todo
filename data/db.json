@@ -2,22 +2,7 @@
   "data": [
     {
       "id": 1,
-      "title": "get new car",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "title": "get new pant",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "title": "get new phone",
-      "completed": false
-    },
-    {
-      "id": 4,
-      "title": "new laptop",
+      "title": "sss",
       "completed": false
     }
   ]

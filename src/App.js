@@ -38,7 +38,7 @@ const App = () => {
       const id = 1;
       const newTodoData = { id, title, completed: false };
       if (newTodoData.title.length <= 2) {
-        alert('pleas add title more contain than 2 characters');
+        alert('pleas add title contain al list 3 characters');
       } else {
         setTodos([newTodoData]); // to add the data so it can show of without refetching
         await axios.post(DATA_URL, newTodoData);
