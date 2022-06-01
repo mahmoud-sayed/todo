@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 
-const Todo = ({ title, completed, handelDelete, id, handelCheck }) => {
+const Todo = ({ title, completed, handelDelete, id, handelCheck, handelEdit }) => {
 
   return (
     <div className='todos'>
@@ -12,7 +12,7 @@ const Todo = ({ title, completed, handelDelete, id, handelCheck }) => {
             <p  >{title}</p>
           </div>
           <div className='todo-actions'>
-            <FaEdit className='todo-edit' />
+            <FaEdit className='todo-edit' onClick={() => handelEdit(id)} />
             <FaTrashAlt className='todo-delete' onClick={() => handelDelete(id)} />
           </div>
         </li>

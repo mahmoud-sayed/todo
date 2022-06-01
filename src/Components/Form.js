@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaPlus } from 'react-icons/fa';
-const Form = ({ handelSubmit, setNewTitle, title }) => {
+import { FaPlus, FaEdit } from 'react-icons/fa';
+const Form = ({ handelSubmit, setNewTitle, title, editSign }) => {
 
 
 
@@ -8,7 +8,7 @@ const Form = ({ handelSubmit, setNewTitle, title }) => {
   return (
     <form onSubmit={handelSubmit}>
       <input type="text" placeholder='Add ToDo' onChange={(e) => setNewTitle(e.target.value)} value={title} />
-      <button><FaPlus /></button>
+      <button>{editSign ? <FaEdit /> : <FaPlus />}</button>
     </form>
   );
 };
