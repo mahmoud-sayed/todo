@@ -42,6 +42,7 @@ const App = () => {
       } else {
         setTodos([newTodoData]); // to add the data so it can show of without refetching
         await axios.post(DATA_URL, newTodoData);
+
       }
     } else {
       // create new todo if there is already todos
